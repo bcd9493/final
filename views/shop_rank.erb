@@ -6,30 +6,24 @@
 
 <form action="/shops/<%= @shop[:id] %>/rankings/ranked">
   <div class="form-group">
-    <label for="exampleFormControlSelect2">How Helpful Was The Staff? (1 Not, 4 Very)</label>
+    <label for="exampleFormControlSelect2">Was The Staff Helpful?</label>
     <select multiple class="form-control" name="helpful">
-    <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
+    <option value="1">Yes</option>
+    <option value="0">No</option>
     </select>
   </div>
   <div class="form-group">
-    <label for="exampleFormControlSelect2">How Friendly Was The Staff? (1 Not, 4 Very)</label>
+    <label for="exampleFormControlSelect2">Was The Staff Friendly?</label>
     <select multiple class="form-control" name="friendly">
-    <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
+    <option value="1">Yes</option>
+    <option value="0">No</option>
     </select>
   </div>
 <div class="form-group">
-    <label for="exampleFormControlSelect2">How Long Did It Take?</label>
+    <label for="exampleFormControlSelect2">Did It Less Than 2 Hours?</label>
     <select multiple class="form-control" name="time">
-      <option value="1">Less than 1 hour</option>
-      <option value="2">1-2 hours</option>
-      <option value="3">2-3 hours</option>
-      <option value="4">3+ hours</option>
+    <option value="1">Yes</option>
+    <option value="0">No</option>
     </select>
   </div>
 

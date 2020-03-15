@@ -9,37 +9,41 @@
 
         <p><%= @shop[:description] %></p>
 
-        <h2>RSVPs</h2>
+        <h2>Rankings</h2>
         
         <!-- Hardcoded Data -->
 
         <div class="media">
-            <i class="fas fa-thumbs-up fa-3x"></i>
+        <i class="fas fa-cannabis fa-5x"></i>
             <div class="media-body ml-5">
-                <h5 class="mt-0">Brian</h5>
-                Wouldn't miss it!
+                <h5 class="mt-0"> Was The Staff Helpful?</h5>
+                <p><%= @helpful_count %> Said Helpful</p>
+                <p><%= @nothelpful_count %> Said NOT Helpful</p>
             </div>
         </div>
 
         <div class="media mt-3">
-            <i class="fas fa-thumbs-down fa-3x"></i>
+            <i class="fas fa-cannabis fa-5x"></i>
             <div class="media-body ml-5">
-                <h5 class="mt-0">Ben</h5>
-                Nope, I only eat Kale.
+                <h5 class="mt-0">Was The Staff Friendly</h5>
+                <p><%= @friendly_count %> Said Friendly</p>
+                <p><%= @notfriendly_count %> Said NOT Friendly</p>
+            </div>
+        </div>
+        <div class="media mt-3">
+            <i class="fas fa-cannabis fa-5x"></i>
+            <div class="media-body ml-5">
+                <h5 class="mt-0">How Long Did It Take?</h5>
+                <p><%= @nottime_count %> Said Less than 2 Hours</p>
+                <p><%= @time_count %> Said Longer than 2 Hours</p>
             </div>
         </div>
 
-        <div class="mt-5">
-            <a href="/shops/<%= @shop[:id] %>/rankings/new" class="btn btn-primary">Rank Now!</a>
-        </div>
-    </div>
-
-    <div class="col-sm-4">
-        <h3>When?</h3>
-        <p><%= @shop[:date] %></p>
-        <h3>Where?</h3>
-        <p><%= @shop[:location] %></p>
-        <h3>How many guests so far?</h3>
-        <p>?????</p>
-    </div>
+        <p class="mt-5">
+            <% if @current_user %>
+                <a href="/shops/<%= @shop[:id] %>/rankings/new" class="btn btn-primary">Rank Now!</a>
+            <% else %>
+                <a href="/logins/new" class="btn btn-danger">Please sign in to RSVP</a>
+            <% end %>
+        </p>
 </div>

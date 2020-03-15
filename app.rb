@@ -16,6 +16,18 @@ after { puts; }                                                                 
 
 shops_table = DB.from(:shops)
 rankings_table = DB.from(:rankings)
+users_table = DB.from(:users)
+
+# put your API credentials here (found on your Twilio dashboard)
+account_sid = "ACd7173489a0142b1fc7e90b9e66fb0498"
+auth_token = "aa8619195798beb24c42ec812b19f60e"
+
+# set up a client to talk to the Twilio REST API
+client = Twilio::REST::Client.new(account_sid, auth_token)
+
+before do
+    @current_user = users_table.where(id: session["user_id"]).to_a[0]
+end
 
 get "/" do
     puts shops_table.all
@@ -25,6 +37,14 @@ end
 
 get "/shops/:id" do
     @shop = shops_table.where(id: params[:id]).to_a[0]
+    @ranking = rankings_table.where(event_id: @shop[:id])
+    @helpful_count = rankings_table.where(event_id: @shop[:id], helpful: true).count
+    @nothelpful_count = rankings_table.where(event_id: @shop[:id], helpful: false).count
+    @friendly_count = rankings_table.where(event_id: @shop[:id], friendly: true).count
+    @notfriendly_count = rankings_table.where(event_id: @shop[:id], friendly: false).count
+    @time_count = rankings_table.where(event_id: @shop[:id], time: true).count
+    @nottime_count = rankings_table.where(event_id: @shop[:id], time: false).count
+    @users_table = users_table
     view "shop"
 end
 
@@ -44,3 +64,45 @@ get "/shops/:id/rankings/ranked" do
     view "ranked"
 end
 
+get "/users/new" do
+    view "newuser"
+end
+
+post "/users/create" do
+    puts params
+    hashed_password = BCrypt::Password.create(params["password"])
+    users_table.insert(name: params["name"], email: params["email"], password: hashed_password)
+    # send the SMS from your trial Twilio number to your verified non-Twilio number
+    client.messages.create(
+    from: "+13012652048", 
+    to: "+14192025642",
+    body: "You created a new User")
+    view "createuser"
+end
+
+get "/logins/new" do
+    view "newlogin"
+end
+
+post "/logins/create" do
+    user = users_table.where(email: params["email"]).to_a[0]
+    puts BCrypt::Password::new(user[:password])
+    if user && BCrypt::Password::new(user[:password]) == params["password"]
+        session["user_id"] = user[:id]
+        @current_user = user
+        # send the SMS from your trial Twilio number to your verified non-Twilio number
+        client.messages.create(
+        from: "+13012652048", 
+        to: "+14192025642",
+        body: "You Logged In")
+        view "createlogin"
+    else
+        view "loginfailed"
+    end
+end
+
+get "/logout" do
+    session["user_id"] = nil
+    @current_user = nil
+    view "logout"
+end

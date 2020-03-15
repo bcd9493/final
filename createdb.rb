@@ -9,7 +9,6 @@ DB.create_table! :shops do
   primary_key :id
   String :title
   String :description, text: true
-  String :date
   String :location
 end
 DB.create_table! :rankings do
@@ -17,9 +16,8 @@ DB.create_table! :rankings do
   foreign_key :event_id
   foreign_key :user_id
   Boolean :helpful
-  Integer :friendly
-  String :time
-  String :comments, text: true
+  Boolean :friendly
+  Boolean :time
 end
 DB.create_table! :users do
   primary_key :id
@@ -32,12 +30,19 @@ end
 # Insert initial (seed) data
 shops_table = DB.from(:shops)
 
-shops_table.insert(title: "Bacon Burger Taco Fest", 
-                    description: "Here we go again bacon burger taco fans, another Bacon Burger Taco Fest is here!",
-                    date: "June 21",
+shops_table.insert(title: "Dispensary 33", 
+                    description: "https://dispensary33.com/",
                     location: "Kellogg Global Hub")
 
-shops_table.insert(title: "Kaleapolooza", 
-                    description: "If you're into nutrition and vitamins and stuff, this is the event for you.",
-                    date: "July 4",
+shops_table.insert(title: "Sunnyside Dispensary - Lakeview", 
+                    description: "https://www.sunnyside.shop/",
                     location: "Nowhere")
+
+shops_table.insert(title: "GreenGate Chicago", 
+                    description: "https://greengatechicago.com/",
+                    location: "Nowhere")
+
+shops_table.insert(title: "MedMen Chicago - Evanston (Maple Ave.)", 
+                    description: "https://www.medmen.com/patients/dispensary-selection",
+                    location: "Nowhere")
+

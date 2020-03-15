@@ -76,7 +76,7 @@ post "/users/create" do
     client.messages.create(
     from: "+13012652048", 
     to: "+14192025642",
-    body: "You created a new User")
+    body: "Another user, Brad we're crushing it!")
     view "createuser"
 end
 
@@ -89,11 +89,6 @@ post "/logins/create" do
     if user && BCrypt::Password::new(user[:password]) == params["password"]
         session["user_id"] = user[:id]
         @current_user = user
-        # send the SMS from your trial Twilio number to your verified non-Twilio number
-        client.messages.create(
-        from: "+13012652048", 
-        to: "+14192025642",
-        body: "You Logged In")
         view "createlogin"
     else
         view "loginfailed"

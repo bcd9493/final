@@ -35,10 +35,6 @@ end
 
 get "/shops/:id/rankings/ranked" do
     puts params
-    @shop = shops_table.where(id: params["id"])
-    rankings_table.insert(event_id: params["id"],
-                       user_id: session["user_id"],
-                       going: params["going"],
-                       comments: params["comments"])
     view "ranked"
 end
+

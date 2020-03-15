@@ -31,18 +31,18 @@ end
 shops_table = DB.from(:shops)
 
 shops_table.insert(title: "Dispensary 33", 
-                    description: "https://dispensary33.com/",
+                    description: "Medical and Recreational Weed Dispensary",
                     location: "Kellogg Global Hub")
 
 shops_table.insert(title: "Sunnyside Dispensary - Lakeview", 
-                    description: "https://www.sunnyside.shop/",
+                    description: "Medical and Recreational Weed Dispensary",
                     location: "Nowhere")
 
 shops_table.insert(title: "GreenGate Chicago", 
-                    description: "https://greengatechicago.com/",
+                    description: "Medical and Recreational Weed Dispensary",
                     location: "Nowhere")
 
 shops_table.insert(title: "MedMen Chicago - Evanston (Maple Ave.)", 
-                    description: "https://www.medmen.com/patients/dispensary-selection",
+                    description: "Medical and Recreational Weed Dispensary",
                     location: "Nowhere")
 

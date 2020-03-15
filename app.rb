@@ -19,8 +19,8 @@ rankings_table = DB.from(:rankings)
 users_table = DB.from(:users)
 
 # put your API credentials here (found on your Twilio dashboard)
-account_sid = "ACd7173489a0142b1fc7e90b9e66fb0498"
-auth_token = "aa8619195798beb24c42ec812b19f60e"
+account_sid = ENV["ACd7173489a0142b1fc7e90b9e66fb0498"]
+auth_token = ENV["22df7447b517f18eb7ea871b8b98ab8d"]
 
 # set up a client to talk to the Twilio REST API
 client = Twilio::REST::Client.new(account_sid, auth_token)

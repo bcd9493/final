@@ -1,9 +1,5 @@
 <div class="row">
     <div class="col-sm-8">
-        <h2>
-            <i class="far fa-calendar-alt"></i>
-            <%= @shop[:date] %>
-        </h2>
 
         <h1><%= @shop[:title] %></h1>
 
@@ -14,36 +10,41 @@
         <!-- Hardcoded Data -->
 
         <div class="media">
-        <i class="fas fa-cannabis fa-5x"></i>
+        <i class="fas fa-cannabis fa-5x" style="color:green;"></i>
             <div class="media-body ml-5">
                 <h5 class="mt-0"> Was The Staff Helpful?</h5>
                 <p><%= @helpful_count %> Said Helpful</p>
-                <p><%= @nothelpful_count %> Said NOT Helpful</p>
+                <h9><p><%= @nothelpful_count %> Said NOT Helpful</p></h9>
             </div>
         </div>
 
         <div class="media mt-3">
-            <i class="fas fa-cannabis fa-5x"></i>
+            <i class="fas fa-cannabis fa-5x" style="color:green;"></i>
             <div class="media-body ml-5">
                 <h5 class="mt-0">Was The Staff Friendly</h5>
                 <p><%= @friendly_count %> Said Friendly</p>
-                <p><%= @notfriendly_count %> Said NOT Friendly</p>
+                <h9><p><%= @notfriendly_count %> Said NOT Friendly</p></h9>
             </div>
         </div>
         <div class="media mt-3">
-            <i class="fas fa-cannabis fa-5x"></i>
+            <i class="fas fa-cannabis fa-5x" style="color:green;"></i>
             <div class="media-body ml-5">
                 <h5 class="mt-0">How Long Did It Take?</h5>
                 <p><%= @nottime_count %> Said Less than 2 Hours</p>
-                <p><%= @time_count %> Said Longer than 2 Hours</p>
+                <h9><p><%= @time_count %> Said Longer than 2 Hours</p></h9>
             </div>
         </div>
+
 
         <p class="mt-5">
             <% if @current_user %>
                 <a href="/shops/<%= @shop[:id] %>/rankings/new" class="btn btn-primary">Rank Now!</a>
             <% else %>
-                <a href="/logins/new" class="btn btn-danger">Please sign in to RSVP</a>
+                <a href="/logins/new" class="btn btn-danger">Sign in to Rank!</a>
             <% end %>
         </p>
+</div>
+
+<div class="col-sm-3">
+        <h3>Where on the Map?</h3>
 </div>

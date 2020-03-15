@@ -9,7 +9,6 @@ DB.create_table! :shops do
   primary_key :id
   String :title
   String :description, text: true
-  String :location
 end
 DB.create_table! :rankings do
   primary_key :id
@@ -31,18 +30,14 @@ end
 shops_table = DB.from(:shops)
 
 shops_table.insert(title: "Dispensary 33", 
-                    description: "Medical and Recreational Weed Dispensary",
-                    location: "Kellogg Global Hub")
+                    description: "Medical and Recreational Weed Dispensary")
 
 shops_table.insert(title: "Sunnyside Dispensary - Lakeview", 
-                    description: "Medical and Recreational Weed Dispensary",
-                    location: "Nowhere")
+                    description: "Medical and Recreational Weed Dispensary")
 
 shops_table.insert(title: "GreenGate Chicago", 
-                    description: "Medical and Recreational Weed Dispensary",
-                    location: "Nowhere")
+                    description: "Medical and Recreational Weed Dispensary")
 
 shops_table.insert(title: "MedMen Chicago - Evanston (Maple Ave.)", 
-                    description: "Medical and Recreational Weed Dispensary",
-                    location: "Nowhere")
+                    description: "Medical and Recreational Weed Dispensary")
 

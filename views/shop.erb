@@ -5,7 +5,7 @@
 
         <p><%= @shop[:description] %></p>
 
-        <h2>Rankings</h2>
+        <h2>Ratings</h2>
         
         <!-- Hardcoded Data -->
 
@@ -40,7 +40,7 @@
             <% if @current_user %>
                 <a href="/shops/<%= @shop[:id] %>/rankings/new" class="btn btn-primary">Rank Now!</a>
             <% else %>
-                <a href="/logins/new" class="btn btn-danger">Sign in to Rank!</a>
+                <a href="/logins/new" class="btn btn-danger">Sign in to Rate!</a>
             <% end %>
         </p>
 </div>

@@ -19,8 +19,8 @@ rankings_table = DB.from(:rankings)
 users_table = DB.from(:users)
 
 # put your API credentials here (found on your Twilio dashboard)
-account_sid = ENV["TWILIO_ACCOUNT_SID"]
-auth_token = ENV["TWILIO_AUTH_TOKEN"]
+account_sid = ENV["ACCOUNT_ID"]
+auth_token = ENV["TOKEN"]
 
 # set up a client to talk to the Twilio REST API
 client = Twilio::REST::Client.new(account_sid, auth_token)
@@ -86,7 +86,6 @@ end
 
 post "/logins/create" do
     user = users_table.where(email: params["email"]).to_a[0]
-    puts BCrypt::Password::new(user[:password])
     if user && BCrypt::Password::new(user[:password]) == params["password"]
         session["user_id"] = user[:id]
         @current_user = user

@@ -17,7 +17,7 @@ after { puts; }                                                                 
 shops_table = DB.from(:shops)
 rankings_table = DB.from(:rankings)
 users_table = DB.from(:users)
-@GOOGLE_MAPS_API_KEY = AIzaSyCtovsQvkIUWlNqtYwXY87gEd4ZSmJEhMw 
+
 
 # put your API credentials here (found on your Twilio dashboard)
 account_sid = ENV["ACCOUNT_ID"]

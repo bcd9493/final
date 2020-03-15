@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="col-sm-8">
+        <h1><%= @shop[:title] %></h1>
+
+        <p><%= @shop[:description] %></p>
+
+<form action="/shops/<%= @shop[:id] %>/rankings/ranked">
+  <div class="form-group">
+    <label for="exampleFormControlSelect2">How Helpful Was The Staff? (1 Not, 4 Very)</label>
+    <select multiple class="form-control" id="exampleFormControlSelect2">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect2">How Friendly Was The Staff? (1 Not, 4 Very)</label>
+    <select multiple class="form-control" id="exampleFormControlSelect2">
+    <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+    </select>
+  </div>
+<form>
+  <div class="form-group">
+    <label for="exampleFormControlSelect2">How Long Did It Take?</label>
+    <select multiple class="form-control" id="exampleFormControlSelect2">
+      <option value="1">Less than 1 hour</option>
+      <option value="2">1-2 hours</option>
+      <option value="3">2-3 hours</option>
+      <option value="4">3+ hours</option>
+    </select>
+  </div>
+</form>
+
+        <div class="mt-5">
+            <a href="/shops/<%= @shop[:id] %>/rankings/ranked" class="btn btn-primary">Submit!</a>
+        </div>
+    </div>
+
+</div>

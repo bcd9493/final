@@ -1,0 +1,5 @@
+<h1> All Shops</h1>
+
+<% for shop in @shops %>
+    <p><a href="/shops/<%= shop[:id] %>"><%= shop[:title] %></a></p>
+ <% end %>

@@ -1,0 +1,45 @@
+<div class="row">
+    <div class="col-sm-8">
+        <h2>
+            <i class="far fa-calendar-alt"></i>
+            <%= @shop[:date] %>
+        </h2>
+
+        <h1><%= @shop[:title] %></h1>
+
+        <p><%= @shop[:description] %></p>
+
+        <h2>RSVPs</h2>
+        
+        <!-- Hardcoded Data -->
+
+        <div class="media">
+            <i class="fas fa-thumbs-up fa-3x"></i>
+            <div class="media-body ml-5">
+                <h5 class="mt-0">Brian</h5>
+                Wouldn't miss it!
+            </div>
+        </div>
+
+        <div class="media mt-3">
+            <i class="fas fa-thumbs-down fa-3x"></i>
+            <div class="media-body ml-5">
+                <h5 class="mt-0">Ben</h5>
+                Nope, I only eat Kale.
+            </div>
+        </div>
+
+        <div class="mt-5">
+            <a href="/shops/<%= @shop[:id] %>/rankings/new" class="btn btn-primary">Rank Now!</a>
+        </div>
+    </div>
+
+    <div class="col-sm-4">
+        <h3>When?</h3>
+        <p><%= @shop[:date] %></p>
+        <h3>Where?</h3>
+        <p><%= @shop[:location] %></p>
+        <h3>How many guests so far?</h3>
+        <p>?????</p>
+    </div>
+</div>

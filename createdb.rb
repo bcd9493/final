@@ -16,7 +16,9 @@ DB.create_table! :rankings do
   primary_key :id
   foreign_key :event_id
   foreign_key :user_id
-  Boolean :going
+  Boolean :helpful
+  Boolean :friendly
+  Boolean :time
   String :comments, text: true
 end
 DB.create_table! :users do

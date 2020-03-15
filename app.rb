@@ -36,11 +36,11 @@ end
 get "/shops/:id/rankings/ranked" do
     puts params
     @shop = shops_table.where(id: params[:id]).to_a[0]
-    rsvps_table.insert(event_id: params["id"],
+    rankings_table.insert(event_id: params["id"],
                        user_id: session["user_id"],
-                       helpful: params["going"],
-                       friendly: params["going"],
-                       time: params["going"])
+                       helpful: params["helpful"],
+                       friendly: params["friendly"],
+                       time: params["time"])
     view "ranked"
 end
 
